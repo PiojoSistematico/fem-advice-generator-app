@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import dividerMobile from "./assets/images/pattern-divider-mobile.svg";
+import dividerDesktop from "./assets/images/pattern-divider-desktop.svg";
+import dice from "./assets/images/icon-dice.svg";
 
 function App() {
-  const [count, setCount] = useState(0)
+  function handleClick() {
+    fetch("https://api.adviceslip.com/advice")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <main>
+      <h1>Advice # XXX</h1>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, magni,
+        rerum vitae fuga autem eum quo illo voluptatem non voluptatibus
+        inventore, odit molestiae alias? Perspiciatis commodi quo atque est
+        quos.
       </p>
-    </>
-  )
+      <img src={dividerMobile} alt="" />
+
+      <button onClick={handleClick}>
+        <img src={dice} alt="" />
+      </button>
+    </main>
+  );
 }
 
-export default App
+export default App;
